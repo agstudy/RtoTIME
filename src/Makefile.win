@@ -1,0 +1,34 @@
+# Emacs please make this -*- mode: makefile; tab-width: 8 -*-
+#
+#
+
+ifeq "$(BuildConfiguration)" ""
+BuildConfiguration:=Debug
+endif
+
+SLN:= Time2R.sln
+TIME2RBINDIR:=./CSIRO.TIME2R/bin/$(BuildConfiguration)
+
+INSTDIR:= ../inst
+TIME2RBINs:= $(TIME2RBINDIR)/*.dll $(TIME2RBINDIR)/*.pdb
+MSB := C:/WINDOWS/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
+MODE:=Build
+SLNPROPERTIES:=/p:Configuration=$(BuildConfiguration)
+
+all: instdir Time2RLib 
+
+Time2RLibComp:
+	$(MSB) $(SLN) /t:$(MODE) $(SLNPROPERTIES)
+
+Time2RLib: Time2RLibComp
+	-cp -u -p $(TIME2RBINs) $(INSTDIR)/libs
+
+instdir:
+	-@rm -rf $(INSTDIR)/libs
+	# the following two lines are required, even if empty folder, otherwise R complains at package load time.
+	-@mkdir -p $(INSTDIR)/libs/i386
+	-@mkdir -p $(INSTDIR)/libs/x64
+	-@mkdir -p $(INSTDIR)/libs 2>/dev/null
+
+.PHONY: all
+

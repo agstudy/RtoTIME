@@ -1,0 +1,21 @@
+Package: RtoTIME
+Type: Package
+Title: Access to TIME from R
+Version: 0.1-1
+Date: 2013-08-19
+Authors@R: c( person("Jean-Michel", "Perraud", email =
+    "jean-michel.perraud@csiro.au", role = c("aut", "cre")))
+Author: Jean-Michel Perraud [aut, cre]
+Description: RtoTIME is a package to access TIME modelling and data
+    features from the R environment.
+License: LGPL-2.1
+LazyLoad: yes
+URL: https://github.com/jmp75/RtoTIME
+Depends:
+    R (>= 2.13.0), zoo, rClr
+Collate:
+    'time_series.r'
+    'RtoTIME-package.r'
+    'parameters.r'
+    'time_simulations.r'
+    'zzz.r'
