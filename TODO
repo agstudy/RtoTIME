@@ -1,0 +1,7 @@
+
+
+* Naming of the package functions
+** Note that while it is tempting to come up with generic methods (as.zoo.clrobj) this may have serious downsides later on when multiple packages do that. 
+
+* vignette: intro for a lumped temporal model. 
+

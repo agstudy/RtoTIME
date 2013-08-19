@@ -1,15 +1,4 @@
 
-#' Load the TIME2R CLR assembly
-#'
-#' @export
-loadTime2RFacade <- function() {
-  nativeLibsPath <- getNativeLibsPath('Time2R')
-  r_arch=Sys.getenv("R_ARCH")
-  f <- file.path(nativeLibsPath, ifelse( r_arch=='', '', '..'), 'CSIRO.TIME2R.dll')
-  stopifnot( file.exists(f) )
-  clrLoadAssembly(f)
-}
-
 simulationLoaderTypename <- 'CSIRO.TIME2R.SimulationLoader,CSIRO.TIME2R'
 timeDataConvTypename <- 'CSIRO.TIME2R.TimeToRDataConversion,CSIRO.TIME2R'
 timeSeriesHelperTypename <- 'CSIRO.TIME2R.TimeSeriesHelper,CSIRO.TIME2R'
@@ -61,7 +50,7 @@ createModelRunner <- function(type) {
 
 #' Rewinds, reset and initialise states of a ModelRunner.
 #'
-#' Rewinds the model, then call reset and initialiseSimulation on the model that the ModelRunner uses.
+#' Rewinds the model, then call reset and initialiseSimulation on the model that the ModelRunner uses.`
 #'
 #' @param simul CLr object of type ModelRunner
 #' @export

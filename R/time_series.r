@@ -1,19 +1,19 @@
-#' convert form a TIME time series to a zoo series
-#'
-#' @param x an object of class 'timets'
-#' @param ... arguments passed to the zoo constructor
-#' @return a zoo DAILY time series
-#' @seealso /code{/link{timets}}
-#' @export
-#' @import zoo
-as.zoo.timets <- function(x, ...) 
-{
-  startdate <- attr(x, "startdate")
-  startdate <- as.Date(startdate)
-  xdata = clrCallStatic(timeDataConvTypename, 'ToNumericVectorPtr', x)
-  index <- startdate + 0:(length(xdata)-1)
-	zoo(xdata, index, ...)
-}
+## #' convert form a TIME time series to a zoo series
+## #'
+## #' @param x an object of class 'timets'
+## #' @param ... arguments passed to the zoo constructor
+## #' @return a zoo DAILY time series
+## #' @seealso /code{/link{timets}}
+## #' @export
+## #' @import zoo
+## as.zoo.timets <- function(x, ...) 
+## {
+##   startdate <- attr(x, "startdate")
+##   startdate <- as.Date(startdate)
+##   xdata = clrCallStatic(timeDataConvTypename, 'ToNumericVectorPtr', x)
+##   index <- startdate + 0:(length(xdata)-1)
+## 	zoo(xdata, index, ...)
+## }
 
 
 #' Retrieves a recorded 'TIME' time series from a simulation
@@ -73,10 +73,10 @@ toArray <- function(obj) { clrCall(obj, 'ToArray') }
 #'
 #' @param values the numeric vector of values in the time series
 #' @param startDate an R Date object, start date
-#' @param timeStep a case-sensitive string such as "Daily", "Monthly"
-#' @return a 'TIME' time series
+#' @param timeStep a case-sensitive string such as "Daily", "Monthly", or a clrobj with a CLR type TimeStep
+#' @return a 'TIME' time series as a clrobj
 #' @export
-createTts <- function(values, startDate, timestep) {
+tts <- function(values, startDate, timestep) {
   clrCallStatic( timeSeriesHelperTypename, 'CreateTimeSeries', values, startDate, timestep )
 }
 
@@ -112,18 +112,4 @@ rttGetTimeStepDays <- function(tts) {
   days <- clrCallStatic( timeSeriesHelperTypename, 'GetRegularTimeStepLengthDays', tts )
   if( days < 0 ) { stop('Unsupported time step - only regular time steps supported for conversion to R series') }
   days
-}
-
-#' OBSOLETE create a simple 'TIME' time series
-#'
-#' @param x a numeric vector
-#' @param startdate arguments passed to the zoo constructor
-#' @return a very simple time series structure: data and start date
-#' @export
-#' @import zoo
-timets <- function (x, startdate) {
-  result <- x
-  class(result)<-c(class(x), 'timets')
-  attr(result, "startdate") <- as.Date(startdate)
-  result
 }
