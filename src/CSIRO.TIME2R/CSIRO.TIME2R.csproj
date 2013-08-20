@@ -40,6 +40,9 @@
     <Reference Include="TIME.Tools">
       <HintPath>$(TIMEBinariesPath)\TIME.Tools.dll</HintPath>
     </Reference>
+    <Reference Include="TIME.Models.RainfallRunoff">
+      <HintPath>$(TIMEBinariesPath)\TIME.Models.RainfallRunoff.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ParameterSetHelper.cs" />
