@@ -8,7 +8,8 @@
   \item{values}{the numeric vector of values in the time
   series}
 
-  \item{startDate}{an R Date object, start date}
+  \item{startDate}{Start date of the time series; an object
+  coercible to a POSIXct representation.}
 
   \item{timeStep}{a case-sensitive string such as "Daily",
   "Monthly", or a clrobj with a CLR type TimeStep}

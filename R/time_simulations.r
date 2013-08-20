@@ -50,7 +50,7 @@ createModelRunner <- function(type) {
 
 #' Rewinds, reset and initialise states of a ModelRunner.
 #'
-#' Rewinds the model, then call reset and initialiseSimulation on the model that the ModelRunner uses.`
+#' Rewinds the model, then call reset and initialiseSimulation on the model that the ModelRunner uses.
 #'
 #' @param simul CLr object of type ModelRunner
 #' @export
