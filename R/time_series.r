@@ -1,21 +1,3 @@
-## #' convert form a TIME time series to a zoo series
-## #'
-## #' @param x an object of class 'timets'
-## #' @param ... arguments passed to the zoo constructor
-## #' @return a zoo DAILY time series
-## #' @seealso /code{/link{timets}}
-## #' @export
-## #' @import zoo
-## as.zoo.timets <- function(x, ...) 
-## {
-##   startdate <- attr(x, "startdate")
-##   startdate <- as.Date(startdate)
-##   xdata = clrCallStatic(timeDataConvTypename, 'ToNumericVectorPtr', x)
-##   index <- startdate + 0:(length(xdata)-1)
-## 	zoo(xdata, index, ...)
-## }
-
-
 #' Retrieves a recorded 'TIME' time series from a simulation
 #'
 #' Retrieves a recorded 'TIME' time series from a simulation. R users are likely to prefer 
@@ -72,12 +54,12 @@ toArray <- function(obj) { clrCall(obj, 'ToArray') }
 #' Create a 'TIME' time series 
 #'
 #' @param values the numeric vector of values in the time series
-#' @param startDate an R Date object, start date
+#' @param startDate Start date of the time series; an object coercible to a POSIXct representation.
 #' @param timeStep a case-sensitive string such as "Daily", "Monthly", or a clrobj with a CLR type TimeStep
 #' @return a 'TIME' time series as a clrobj
 #' @export
 tts <- function(values, startDate, timestep) {
-  clrCallStatic( timeSeriesHelperTypename, 'CreateTimeSeries', values, startDate, timestep )
+  clrCallStatic( timeSeriesHelperTypename, 'CreateTimeSeries', values, as.POSIXct(startDate), timestep )
 }
 
 #' Convert a 'zoo' series to a 'TIME' time series

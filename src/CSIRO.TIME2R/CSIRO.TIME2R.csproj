@@ -45,6 +45,7 @@
     <Compile Include="ParameterSetHelper.cs" />
     <Compile Include="SimulationLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\TestThat.cs" />
     <Compile Include="TimeSeriesHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
