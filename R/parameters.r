@@ -18,7 +18,7 @@ loadParameterSetFromXml <- function(filename) {
 #' @export
 pSetAsDataFrame <- function(paramSet) {
   p <- clrCallStatic('CSIRO.TIME2R.ParameterSetHelper', 'PsetToDataFrame', paramSet)
-  data.frame(Name=clrGet(p,'Name'), Value=clrGet(p,'Value'), Min=clrGet(p,'Minimum'), Max=clrGet(p,'Maximum'),  Description=clrGet(p,'Description'),  stringsAsFactors=FALSE)
+  data.frame(Name=clrGet(p,'Name'), Value=clrGet(p,'Values'), Min=clrGet(p,'Minima'), Max=clrGet(p,'Maxima'),  Description=clrGet(p,'Description'),  stringsAsFactors=FALSE)
 }
 
 #' Gets a TIME parameter set from a model

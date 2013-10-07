@@ -1,8 +1,8 @@
 Package: RtoTIME
 Type: Package
 Title: Access to TIME from R
-Version: 0.1-1
-Date: 2013-08-19
+Version: 0.2-1
+Date: 2013-09-22
 Authors@R: c( person("Jean-Michel", "Perraud", email =
     "jean-michel.perraud@csiro.au", role = c("aut", "cre")))
 Author: Jean-Michel Perraud [aut, cre]
@@ -12,7 +12,7 @@ License: LGPL-2.1
 LazyLoad: yes
 URL: https://github.com/jmp75/RtoTIME
 Depends:
-    R (>= 2.13.0),
+    R (>= 2.15.0),
     zoo,
     rClr
 Collate:

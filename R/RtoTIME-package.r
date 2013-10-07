@@ -8,8 +8,8 @@
 #' \tabular{ll}{
 #' Package: \tab RtoTIME\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.1-1\cr
-#' Date: \tab 2013-04-04\cr
+#' Version: \tab 0.2-1\cr
+#' Date: \tab 2013-09-22\cr
 #' License: \tab LGPL 2.1\cr
 #' }
 #'
